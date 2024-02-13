@@ -9,7 +9,7 @@ Servo servoMotor;
 #define SERVO_PORT 11
 #define SERVO_ANGLE 90 // in degrees
 #define SPEED_LIMIT 30 // in cm/s
-#define RANGE 20 // in cm
+#define RANGE 20       // in cm
 
 unsigned int readUltrasonicDistance(byte triggerPin, byte echoPin)
 {
@@ -51,7 +51,7 @@ void loop()
     delay(50); // let everything return to stable state
 
     // if neither of the velocities crosses SPEED_LIMIT, just restart the function
-    if (velocity1 < SPEED_LIMIT)
+    if (velocity1 < SPEED_LIMIT && velocity2 < SPEED_LIMIT)
         return;
 
     servoMotor.write(SERVO_ANGLE);
